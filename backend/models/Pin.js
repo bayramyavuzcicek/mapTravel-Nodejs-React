@@ -2,21 +2,34 @@ import mongoose from 'mongoose';
 
 const PinsSchema = new mongoose.Schema({
     username:{
-        
+        type:String,
+        required:true,
     },
-    username:{
-
+    title:{
+        type:String,
+        required:true,
+        min:3
     },
-    username:{
-
+    desc:{
+        type:String,
+        required:true,
+        min:3
     },
-    username:{
-
+    rating:{
+        type:Number,
+        required:true,
+        min:0,
+        max:5
     },
-    username:{
-
+    lat:{
+        type:Number,
+        required:true,
     },
-})
+    long:{
+        type:Number,
+        required:true,
+    },
+},{timestamps:true})
 
 
 

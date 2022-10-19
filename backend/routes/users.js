@@ -19,7 +19,7 @@ router.post("/register", async (req,res)=>{
     //save user and response
     try {
         const user = await newUser.save();
-        res.status(200).json(user)
+        res.status(200).json(user._id)
     } catch (err) {
         res.status(500).json(err)
     }
@@ -34,8 +34,8 @@ router.post("/login",async (req,res)=>{
     const isPassword = bcrypt.compareSync(req.body.password, user.password);
     !isPassword && res.status(403).json("Wrong Credentials");
     //send response
-    const {password, ...others} = user._doc;
-    res.status(200).json(others);
+   
+    res.status(200).json({_id:user.id,username:user.username});
 })
 
 export default router;

@@ -23,7 +23,8 @@ connection();
 app.use("/api/users", usersRoutes);
 app.use("/api/pins", pinsRoutes);
 
-app.listen(5000,()=>{
-    console.log("Backend is running on 5000");
+const PORT = process.env.PORT
+app.listen(PORT,()=>{
+    console.log(`Backend is running on ${PORT}`);
 });
 
